@@ -11,6 +11,8 @@ import { PageMatchDetailsComponent } from './components/page-match-details/page-
 import { PageNewMatchComponent } from './components/page-new-match/page-new-match.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PageRentWreslerComponent } from './components/page-rent-wresler/page-rent-wresler.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PageRentWreslerComponent } from './components/page-rent-wresler/page-re
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
